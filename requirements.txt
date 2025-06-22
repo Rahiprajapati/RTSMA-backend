@@ -4,3 +4,4 @@ mysql-connector-python
 gunicorn
 yfinance
 textblob
+scikit-learn
