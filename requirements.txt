@@ -6,3 +6,4 @@ yfinance
 textblob
 scikit-learn
 bcrypt
+PyJWT
