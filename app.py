@@ -27,10 +27,21 @@ def create_app():
     app.config.from_object("config.Config")
     
     # Enable CORS with specific configuration
+    # CORS(app, 
+    #      origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    #      allow_headers=["Content-Type", "Authorization"],
+    #      methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
+
     CORS(app, 
-         origins=["http://localhost:3000", "http://127.0.0.1:3000"],
-         allow_headers=["Content-Type", "Authorization"],
-         methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
+     origins=[
+         "http://localhost:3000", 
+         "http://127.0.0.1:3000",
+         "https://rtsma-frontend.onrender.com"  # <-- Add this
+     ],
+     allow_headers=["Content-Type", "Authorization"],
+     methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+     supports_credentials=True  # <-- Include this if you're using cookies or auth
+)
     
     # Initialize database
     try:
